@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Opening Gmail</title>
+<style>body{margin:0;font:17px -apple-system,system-ui,sans-serif;background:#111;color:#eee;display:flex;min-height:100vh;align-items:center;justify-content:center;padding:16px;box-sizing:border-box}
+a{display:block;margin:12px 0;padding:16px 20px;border-radius:12px;background:#d93025;color:#fff;text-decoration:none;text-align:center;font-weight:600}
+a.web{background:#333}</style></head>
+<body><div><p id="m">Opening the thread in Gmail…</p><a id="app" href="#">Open in Gmail app</a><a id="web" class="web" href="#">Open in browser instead</a></div>
+<script>
+var t=(new URLSearchParams(location.search).get('t')||'').replace(/[^0-9a-f]/gi,'');
+var app='googlegmail:///cv='+t+'/accountId=1&create-new-tab';
+var web='https://mail.google.com/mail/u/0/#all/'+t;
+document.getElementById('app').href=app;document.getElementById('web').href=web;
+if(t){location.href=app;}else{document.getElementById('m').textContent='No thread id in this link.';}
+</script></body></html>
